@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gym.mapper.RolePermissionMapper">
+
+    <!-- 查询角色权限CODE -->
+    <select id="selectPermissionsByRoleId" resultType="java.lang.String">
+        SELECT p.code
+        FROM role_permission rp
+                 JOIN permission p ON rp.permission_id = p.id
+        WHERE rp.role_id = #{roleId}
+    </select>
+
+</mapper>
